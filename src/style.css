@@ -3,28 +3,67 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border: 1px solid red;
-  height: 100%;
-
 }
 
 body {
-    background: linear-gradient(53deg, #382ee8, #895a22);
-    background-size: 400% 400%;
-
-    -webkit-animation: AnimationName 7s ease infinite;
-    animation: AnimationName 7s ease infinite;
+  width: 100%;
+  color: snow;
+  background: linear-gradient(53deg, #382ee8, #895a22);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 7s ease infinite;
+  animation: AnimationName 7s ease infinite;
+}
 
 @-webkit-keyframes AnimationName {
-    0%{background-position:63% 0%}
-    50%{background-position:38% 100%}
-    100%{background-position:63% 0%}
+  0%{background-position:63% 0%}
+  50%{background-position:38% 100%}
+  100%{background-position:63% 0%}
 }
+
 @keyframes AnimationName {
-    0%{background-position:63% 0%}
-    50%{background-position:38% 100%}
-    100%{background-position:63% 0%}
+  0%{background-position:63% 0%}
+  50%{background-position:38% 100%}
+  100%{background-position:63% 0%}
 }
-  color: snow;
-  width: 100%;
+
+.quiz-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 5rem;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: rgba(62, 78, 83, 0.332);
+  padding: 1rem;
+}
+
+.answers {
+  margin-block: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.7rem;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.3rem;
+  margin-block: 1rem;
+}
+
+button {
+  padding: .5rem 1.3rem;
+  cursor: pointer;
+  border-radius: 5px;
 }

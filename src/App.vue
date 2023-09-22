@@ -1,14 +1,26 @@
 <script setup lang="ts">
 import { ref } from "vue";
-const answer = ref(true);
 
-const quiz = [
+const quizQuestions = [
   {
-    question: "Im too good",
-    options: []
-  }
-]
-
+    question: "Javascript is a programming language",
+    options: ["True", "False", "Not know", "Maybe"],
+    answer: 1,
+    selected: null,
+  },
+  {
+    question: "Python is a programming language",
+    options: ["True", "False", "Not know", "Maybe"],
+    answer: 2,
+    selected: null,
+  },
+  {
+    question: "Ruby is a programming language",
+    options: ["True", "False", "Not know", "Maybe"],
+    answer: 3,
+    selected: null,
+  },
+];
 </script>
 
 <template>

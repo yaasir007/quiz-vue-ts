@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
+
+const quizCompleted = ref(false);
+const currentQuestion = ref(0);
+
 
 const quizQuestions = [
   {
@@ -21,6 +25,21 @@ const quizQuestions = [
     selected: null,
   },
 ];
+
+const score = computed(() => {
+  let value = 0;
+  quizQuestions.map((question) => {
+    if (question.selected == question.answer) {
+      value++;
+    }
+    return value;
+  }) 
+})
+
+const getCurrentQuestion = computed(() => {
+  let question = quizQuestions.question.
+})
+
 </script>
 
 <template>

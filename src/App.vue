@@ -37,7 +37,7 @@ const score = computed(() => {
 })
 
 const getCurrentQuestion = computed(() => {
-  let question = quizQuestions.question.
+  
 })
 
 </script>

@@ -3,8 +3,7 @@ import { ref, computed } from "vue";
 
 const quizCompleted = ref(false);
 const currentQuestion = ref(0);
-const selected = ref();
-
+const quizScore = ref(0);
 
 const quizQuestions = [
   {
@@ -15,7 +14,7 @@ const quizQuestions = [
   },
   {
     question: "Python is a programming language",
-    options: ["True", "False", "Not know", "Maybe"],
+    options: ["True", "Fale", "Not know", "Maybe"],
     answer: 2,
     selected: null,
   },
@@ -28,25 +27,24 @@ const quizQuestions = [
 ];
 
 const score = computed(() => {
-  let value = 0;
   quizQuestions.map((question) => {
     if (question.selected == question.answer) {
-      value++;
+      quizScore++;
     }
-    return value;
-  }) 
-})
+    return quizScore;
+  });
+});
 
 const getCurrentQuestion = computed(() => {
-  let question = quizQuestions[currentQuestion.value]
-  // question.index = currentQuestion.value
+  let question = quizQuestions[currentQuestion.value];
+  question.index = currentQuestion.value
   return question;
-})
+});
 
-// const setAnswer = (event) => {
-//   quizQuestions.value[currentQuestion.value].selected = event.target.value;
-//   event.target.value = null;
-// }
+const setAnswer = (event) => {
+  quizQuestions[currentQuestion.value].selected = event.target.value;
+  event.target.value = null;
+};
 
 const nextQuestion = () => {
   if (currentQuestion.value < quizQuestions.length - 1) {
@@ -54,12 +52,11 @@ const nextQuestion = () => {
   } else {
     quizCompleted.value = true;
   }
-}
+};
 
 const resetQuiz = () => {
   currentQuestion.value = 0;
-}
-
+};
 </script>
 
 <template>
@@ -68,25 +65,17 @@ const resetQuiz = () => {
     <div class="quiz-container">
       <div class="question">{{ getCurrentQuestion.question }}</div>
       <div class="answers">
-        <div class="option">
+        <div
+          v-for="(option, index) in getCurrentQuestion.options"
+          :key="index"
+          class="option"
+        >
           <input type="radio" name="Name1" label="Hello" class="radio-btn" />
-          <p>JavaScript</p>
-        </div>
-        <div class="option">
-          <input type="radio" name="Name1" label="Hello" class="radio-btn" />
-          <p>Ruby</p>
-        </div>
-        <div class="option">
-          <input type="radio" name="Name1" label="Hello" class="radio-btn" />
-          <p>HTML</p>
-        </div>
-        <div class="option">
-          <input type="radio" name="Name1" label="Hello" class="radio-btn" />
-          <p>CSS</p>
+          <p>{{ option }}</p>
         </div>
 
         <div class="score">
-          <span>3/5</span>
+          <span>{{ quizScore }} / {{ quizQuestions.length }}</span>
         </div>
 
         <div class="btns">

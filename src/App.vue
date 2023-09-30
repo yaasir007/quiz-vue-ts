@@ -41,10 +41,10 @@ const getCurrentQuestion = computed(() => {
   return question;
 });
 
-const setAnswer = (event) => {
-  quizQuestions[currentQuestion.value].selected = event.target.value;
-  event.target.value = null;
-};
+// const setAnswer = (event) => {
+//   quizQuestions[currentQuestion.value].selected = event.target.value;
+//   event.target.value = null;
+// };
 
 const nextQuestion = () => {
   if (currentQuestion.value < quizQuestions.length - 1) {
